@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!--ManifestFile-->
+  <link rel="manifest" href="./src/manifest.webmanifest">
+
+  <!-- 省略 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="石山高校バドミントン部">
+  <link rel="apple-touch-icon" href="https://ss1.xrea.com/isym.s223.xrea.com/img/logo-192x192.png" sizes="192x192">
+
+  <!--Icon-->
+  <link rel="icon" href="https://ss1.xrea.com/isym.s223.xrea.com/img/svg/logo-192x192.svg">
+  <link rel="apple-touch-icon" type="image/png" sizes="192x192" href="isym.s223.xrea.com/img/svg/logo-196x196.svg">
+
+  <!--CustomeCss-->
+  <link rel="stylesheet" href="./src/css/index.css">
+
+  <!--tailwindcss-->
+  <script src="./src/lib/tailwindcss.min.js"></script>
+
+  <!--vue-->
+  <script src="./src/lib/vue.min.js"></script>
+  <!--<script src="https://cdn.jsdelivr.net/npm/vue@2.7.11/dist/vue.js"></script>-->
+
+
+  <!--VueX-->
+  <script src="https://unpkg.com/vuex"></script>
+
+  <!--Promise-->
+  <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.js"></script>
+
+  <!--VueRouter-->
+  <script src="./src/lib/vue-router.min.js"></script>
+  <script src="./src/lib/vue-loader.min.js"></script>
+
+  <!--axios-->
+  <script src="./src/lib/axios.min.js"></script>
+  <script src="./src/js/axiosAPI.js"></script>
+
+  <!--Router-->
+  <script src="./src/js/route.js"></script>
+
+  <!--Store-->
+  <script src="./src/js/store.js"></script>
+
+  <!--Holiday-->
+  <script src="./src/lib/japanese-holidays.min.js"></script>
+
+  <title>石山高校バドミントン部</title>
+
+  <activity android:name=".MainActivity"
+    android:screenOrientation="portrait"
+    android:windowSoftInputMode="adjustPan"/>
+
+</head>
+
+<body>
+  <div id="app">
+    <router-view class="p-2 mx-auto pb-16 md:w-2/3 m-1"></router-view>
+    <footer class="h-14 w-full pb-6 bg-white fixed z-30 bottom-0">
+      <ul class="flex justify-center">
+        <HomeIcon url="/" title="Home" img="svg/home.svg" :focus=activePage></HomeIcon>
+        <HomeIcon url="/plan" title="Plan" img="svg/calendar.svg" :focus=activePage></HomeIcon>
+        <HomeIcon url="/timeline" title="Board" img="svg/board.svg" :focus=activePage></HomeIcon>
+        <HomeIcon url="/score" title="Score" img="svg/rows.svg" :focus=activePage></HomeIcon>
+        <HomeIcon url="/menu" title="Menu" img="svg/document.svg" :focus=activePage></HomeIcon>
+        <HomeIcon url="/video" title="Video" img="svg/video.svg" :focus=activePage></HomeIcon>
+      </ul>
+    </footer>
+
+    <ErrorModal :class="{'hidden': !errorModalActivity}" :title="errorTitle" :code="errorCode" :message="errorMessage" :url="errotUrl"></ErrorModal>
+  </div>
+
+  <!--IndexJS-->
+  <script src="./src/js/index.js"></script>
+</body>
+
+</html>
